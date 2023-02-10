@@ -1,5 +1,5 @@
-import { PreviewCard } from "../PreviewCard/types";
+import { IPreviewCard } from "../PreviewCard/types";
 
 export interface PreviewCardsListProps {
-    results: PreviewCard[],
+    movies: IPreviewCard[],
 }

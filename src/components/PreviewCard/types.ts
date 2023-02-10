@@ -1,4 +1,4 @@
-export interface PreviewCard {
+export interface IPreviewCard {
     adult: boolean;
     backdrop_path: string | null;
     id: number;
@@ -17,5 +17,5 @@ export interface PreviewCard {
 }
 
 export interface PreviewCardProps {
-    preview: PreviewCard,
+    preview: IPreviewCard,
 }

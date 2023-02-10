@@ -4,14 +4,20 @@ import './App.scss'
 import Header from "../Header/Header";
 import PreviewCardsList from "../PreviewCardsList/PreviewCardsList";
 
-import { useAppDispatch } from "../../hooks/hooks";
-import { fetchData } from "../../features/movies/moviesSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { IPreviewCard } from "../PreviewCard/types";
+
+import { getPopularMovies } from "../../features/movies-popular/popularMoviesSlice";
+import { getTopRatedMovies } from "../../features/movies-top-rated/topRatedMoviesSlice";
 
 const App = () => {
+    const popular = useAppSelector<IPreviewCard[]>(state => state.popular.movies)
+    const topRated = useAppSelector<IPreviewCard[]>(state => state.topRated.movies)
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(fetchData())
+        dispatch(getPopularMovies())
+        dispatch(getTopRatedMovies())
     }, [])
 
     return (
@@ -19,7 +25,8 @@ const App = () => {
             <div className="wrapper">
                 <Header/>
                 <main className='main'>
-                    <PreviewCardsList/>
+                    <PreviewCardsList movies={popular}/>
+                    <PreviewCardsList movies={topRated}/>
                 </main>
             </div>
         </div>

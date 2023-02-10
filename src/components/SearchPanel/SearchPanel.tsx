@@ -10,7 +10,7 @@ const SearchPanel = () => {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/search/movie?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&query=${value}&query=ru`).then(response => response.json()).then(data => {
+        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/search/movie?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&query=${value}`).then(response => response.json()).then(data => {
             console.log(data)
         });
     }

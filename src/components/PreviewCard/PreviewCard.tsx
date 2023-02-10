@@ -8,7 +8,8 @@ const PreviewCard = ({ preview }: PreviewCardProps) => {
         <article className='preview'>
             <figure>
                 <img draggable={false} width='200' height='300' className='preview__poster'
-                     src={`https://image.tmdb.org/t/p/w200/${poster_path}`} alt={`Movie name: ${title}`}/>
+                     src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={`Movie name: ${title}`}
+                     loading={"lazy"}/>
             </figure>
             <span className="preview__title">{title}</span>
             <div className="preview__rating-container">

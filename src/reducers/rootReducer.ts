@@ -1,6 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import moviesReducer from "../features/movies/moviesSlice";
+import popularMoviesReducer from "../features/movies-popular/popularMoviesSlice";
+import topRatedMoviesReducer from "../features/movies-top-rated/topRatedMoviesSlice";
 
 export const rootReducer = combineReducers({
-    movies: moviesReducer,
+    popular: popularMoviesReducer,
+    topRated: topRatedMoviesReducer,
 })

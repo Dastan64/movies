@@ -1,12 +1,13 @@
 import React from 'react';
 import "./PreviewCardsList.scss";
-import { PreviewCardsListProps } from "./types";
-import PreviewCard from "../PreviewCard/PreviewCard";
+import { PreviewCard } from "../PreviewCard/types";
+import { useAppSelector } from "../../hooks/hooks";
 
-const PreviewCardsList = ({ results }: PreviewCardsListProps) => {
+const PreviewCardsList = () => {
+    const movies = useAppSelector<PreviewCard[]>(state => state.movies.trendingMovies)
     return (
         <ul className='previews-list'>
-            {results.map(preview => {
+            {movies.map(preview => {
                 return <PreviewCard preview={preview} key={preview.id}/>
             })}
         </ul>

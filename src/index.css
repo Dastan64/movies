@@ -6,16 +6,45 @@
 
 :root {
     --primary: #61bfad;
+    --secondary: #E54B4B;
     --black: #000;
     --white: #fff;
     --background: #f9f7e8;
 }
 
+@font-face {
+    font-family: "Museo";
+    src: url("assets/fonts/MuseoSansCyrl-Light.woff2");
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Museo";
+    src: url("assets/fonts/MuseoSansCyrl-Regular.woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Museo";
+    src: url("assets/fonts/MuseoSansCyrl-Bold.woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Museo";
+    src: url("assets/fonts/MuseoSansCyrl-ExtraBold.woff2");
+    font-weight: 900;
+    font-display: swap;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Museo', sans-serif;
     background-color: var(--background);
 }
 
 button, input {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Museo', sans-serif;
 }

@@ -9,6 +9,7 @@ import { IPreviewCard } from "../PreviewCard/types";
 
 import { getPopularMovies } from "../../features/movies-popular/popularMoviesSlice";
 import { getTopRatedMovies } from "../../features/movies-top-rated/topRatedMoviesSlice";
+import MovieDetail from "../MovieDetail/MovieDetail";
 
 const App = () => {
     const popular = useAppSelector<IPreviewCard[]>(state => state.popular.movies)
@@ -25,8 +26,9 @@ const App = () => {
             <div className="wrapper">
                 <Header/>
                 <main className='main'>
-                    <PreviewCardsList movies={popular}/>
-                    <PreviewCardsList movies={topRated}/>
+                    <MovieDetail/>
+                    {/*<PreviewCardsList movies={popular}/>*/}
+                    {/*<PreviewCardsList movies={topRated}/>*/}
                 </main>
             </div>
         </div>

@@ -8,9 +8,14 @@
     }
   }
 
+  &__poster {
+    border-radius: 8px;
+  }
+
   &__title {
     margin-bottom: 12px;
     font-size: calc((68 / 16) * 1rem);
+    font-weight: 900;
     line-height: 1.1;
     @media screen and (max-width: 768px) {
       font-size: calc((48 / 16) * 1rem);
@@ -43,6 +48,10 @@
     background-color: var(--secondary);
     color: var(--white);
     border-radius: 4px;
+
+    &--release {
+      background-color: var(--primary);
+    }
   }
 
   &__rating-thumb {
@@ -92,4 +101,81 @@
   &__fact-caption {
     font-weight: 700;
   }
+}
+
+.starring {
+  padding-top: 24px;
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__container {
+    padding-bottom: 32px;
+    overflow-x: auto;
+    display: flex;
+    gap: 70px;
+    align-items: flex-start;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--scrollbarThumb);
+      height: 4px;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--scrollbarDark);
+    }
+
+  }
+
+  .star {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    &__name {
+      font-size: calc((14 / 16) * 1rem);
+      font-weight: 700;
+    }
+
+    &__role {
+      display: inline-block;
+      font-size: calc((14 / 16) * 1rem);
+    }
+  }
+}
+
+.materials {
+  padding-top: 24px;
+
+  &__title {
+    @extend .starring__title;
+  }
+
+  &__container {
+    @extend .starring__container;
+    gap: 24px;
+  }
+}
+
+.title {
+  font-size: calc((20 / 16) * 2rem);
+  font-weight: 900;
+  color: var(--dark);
 }

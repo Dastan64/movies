@@ -7,7 +7,7 @@ import { convertMinutesToHours } from "../../utils/convertMinutesToHours";
 const MovieDetail = () => {
     const [data, setData] = useState<IMovieDetail>();
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/movie/505642?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}`).then(response => response.json()).then(data => {
+        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/movie/24428?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&append_to_response=videos,credits`).then(response => response.json()).then(data => {
             console.log(data);
             setData(data);
         });
@@ -17,7 +17,7 @@ const MovieDetail = () => {
         <section className='movie'>
             <div className="movie__container">
                 <figure className="movie__poster-container">
-                    <img src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`} alt={data?.title}
+                    <img src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`} alt={data?.title}
                          className="movie__poster"/>
                 </figure>
                 <div className="movie__info">
@@ -35,7 +35,7 @@ const MovieDetail = () => {
                         {data?.genres.map(genre => <li className='movie__genre-item' key={genre.id}>{genre.name}</li>)}
                     </ul>
                     <div className="movie__top-info">
-                        <div className="thumb thumb--release" style={{ backgroundColor: '#61bfad' }}>
+                        <div className="thumb thumb--release">
                             <svg width={16} height={16} xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 24 24" strokeWidth={1.5}
                                  stroke="#fff">
@@ -70,6 +70,36 @@ const MovieDetail = () => {
                     </ul>
                 </div>
             </div>
+            <section className="starring">
+                <h2 className="starring__title title">Starring:</h2>
+                <div className="starring__container">
+                    {data?.credits.cast && data?.credits.cast.slice(0, 12).map(actor => {
+                        return (
+                            <article className="star" key={actor.id}>
+                                <figure className='star__image-container'>
+                                    <img src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`} alt=""
+                                         className="star__image" draggable={false}/>
+                                </figure>
+                                <span className="star__name">{actor.name}</span>
+                                <span className="star__role">{actor.character}</span>
+                            </article>
+                        )
+                    })}
+                </div>
+            </section>
+            <section className="materials">
+                <h2 className="materials__title title">Trailers and extras materials</h2>
+                <div className="materials__container">
+                    {data?.videos.results && data.videos.results.filter(v => v.site.toLowerCase().includes('youtube')).map(video => {
+                        return (
+                            <iframe width="100%" height="315" src={`https://www.youtube.com/embed/${video.key}`}
+                                    title="YouTube video player" frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowFullScreen></iframe>
+                        )
+                    })}
+                </div>
+            </section>
         </section>
     );
 };

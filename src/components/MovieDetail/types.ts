@@ -3,6 +3,10 @@ export interface IMovieDetail {
     backdrop_path: string | null;
     belongs_to_collection: BelongsToCollection | null;
     budget: number;
+    credits: {
+        cast: Cast[];
+        crew: Crew[];
+    }
     genres: Genre[];
     homepage: string | null;
     id: number;
@@ -18,6 +22,9 @@ export interface IMovieDetail {
     revenue: number;
     runtime: number | null;
     spoken_languages: SpokenLanguage[];
+    videos: {
+        results: Result[],
+    };
     status: string;
     tagline: string | null;
     title: string;
@@ -54,4 +61,46 @@ export interface SpokenLanguage {
     english_name: string;
     iso_639_1: string;
     name: string;
+}
+
+export interface Cast {
+    adult: boolean;
+    gender: number | null;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    cast_id: number;
+    character: string;
+    credit_id: string;
+    order: number;
+}
+
+export interface Crew {
+    adult: boolean;
+    gender: number | null;
+    id: number;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    credit_id: string;
+    department: string;
+    job: string;
+}
+
+export interface Result {
+    iso_639_1: string;
+    iso_3166_1: string;
+    name: string;
+    key: string;
+    site: string;
+    size: number;
+    type: string;
+    official: boolean;
+    published_at: Date;
+    id: string;
 }

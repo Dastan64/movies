@@ -1,5 +1,10 @@
 .app {
-
+  &__section-title {
+    margin-bottom: 24px;
+    font-weight: 900;
+    font-size: calc((36 / 16) * 1rem);
+    color: var(--dark);
+  }
 }
 
 .wrapper {
@@ -11,3 +16,5 @@
 .main {
   padding: 40px 0;
 }
+
+

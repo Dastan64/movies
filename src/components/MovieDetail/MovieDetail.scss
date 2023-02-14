@@ -78,17 +78,6 @@
     background-color: #EFE8D8;
     padding: 8px;
     border-radius: 10px;
-    //
-    //&:not(:last-child) {
-    //  &::after {
-    //    content: "";
-    //    display: block;
-    //    width: 4px;
-    //    height: 4px;
-    //    border-radius: 50%;
-    //    background-color: var(--black);
-    //  }
-    //}
   }
 
   &__facts {
@@ -126,7 +115,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--scrollbarThumb);
+      background: var(--primary);
       height: 4px;
       border-radius: 4px;
     }

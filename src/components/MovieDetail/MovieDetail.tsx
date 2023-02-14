@@ -92,7 +92,8 @@ const MovieDetail = () => {
                 <div className="materials__container">
                     {data?.videos.results && data.videos.results.filter(v => v.site.toLowerCase().includes('youtube')).map(video => {
                         return (
-                            <iframe width="100%" height="315" src={`https://www.youtube.com/embed/${video.key}`}
+                            <iframe key={video.id} width="100%" height="315"
+                                    src={`https://www.youtube.com/embed/${video.key}`}
                                     title="YouTube video player" frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowFullScreen></iframe>

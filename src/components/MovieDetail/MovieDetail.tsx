@@ -85,12 +85,10 @@ const MovieDetail = () => {
                                 return (
                                     <article className="star" key={actor.id}>
                                         <figure className='star__image-container'>
-                                            {actor.profile_path ?
-                                                <img src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
-                                                     alt={actor.name}
-                                                     className="star__image" draggable={false}/> :
-                                                <img src={notFound} alt={actor.name} className="star__image"
-                                                     draggable={false}/>}
+                                            <img
+                                                src={actor.profile_path ? `https://image.tmdb.org/t/p/w300${actor.profile_path}` : notFound}
+                                                alt={actor.name}
+                                                className="star__image" draggable={false}/>
                                         </figure>
                                         <span className="star__name">{actor.name}</span>
                                         <span className="star__role">{actor.character}</span>

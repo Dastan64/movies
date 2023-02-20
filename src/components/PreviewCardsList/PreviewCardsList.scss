@@ -1,6 +1,10 @@
 .slider {
   position: relative;
 
+  a {
+    text-decoration: none;
+  }
+
   &__prev-button, &__next-button {
     cursor: pointer;
     position: absolute;

@@ -53,6 +53,10 @@ body {
     margin: 0 auto 0;
 }
 
+.main {
+    padding: 40px 0;
+}
+
 button, input {
     font-family: 'Museo', sans-serif;
 }

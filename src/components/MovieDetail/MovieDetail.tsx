@@ -3,11 +3,13 @@ import "./MovieDetail.scss";
 import { IMovieDetail } from "./types";
 
 import { convertMinutesToHours } from "../../utils/convertMinutesToHours";
+import { useParams } from "react-router-dom";
 
 const MovieDetail = () => {
+    const { id } = useParams();
     const [data, setData] = useState<IMovieDetail>();
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/movie/24428?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&append_to_response=videos,credits`).then(response => response.json()).then(data => {
+        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/movie/${id}?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&append_to_response=videos,credits`).then(response => response.json()).then(data => {
             console.log(data);
             setData(data);
         });

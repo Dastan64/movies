@@ -1,4 +1,10 @@
 .app {
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
   &__section-title {
     margin-bottom: 24px;
     font-weight: 900;

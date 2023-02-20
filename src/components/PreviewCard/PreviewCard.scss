@@ -24,10 +24,9 @@
 
   &__title {
     flex-grow: 1;
-    margin-top: 8px;
-    margin-bottom: 16px;
+    margin: 8px 0;
     color: var(--black);
-    font-size: calc((14 / 16) * 1rem);
+    font-size: calc((15 / 16) * 1rem);
     line-height: 1.3;
     font-weight: 700;
   }

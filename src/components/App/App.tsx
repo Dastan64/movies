@@ -30,15 +30,15 @@ const App = () => {
                 <Header/>
                 <main className='main'>
                     {/*<MovieDetail/>*/}
-                    <section className="upcoming">
+                    <section className="app__section upcoming">
                         <h2 className="upcoming__title app__section-title">Upcoming:</h2>
                         <PreviewCardsList movies={upcoming}/>
                     </section>
-                    <section className="popular">
+                    <section className="app__section popular">
                         <h2 className="popular__title app__section-title">Popular movies:</h2>
                         <PreviewCardsList movies={popular}/>
                     </section>
-                    <section className="rated">
+                    <section className="app__section rated">
                         <h2 className="rated__title app__section-title">Top Rated movies:</h2>
                         <PreviewCardsList movies={topRated}/>
                     </section>

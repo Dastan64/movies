@@ -7,7 +7,7 @@ const PreviewCard = ({ preview }: PreviewCardProps) => {
     return (
         <article className='preview'>
             <figure>
-                <img draggable={false} width='200' height='400' className='preview__poster'
+                <img draggable={false} width='300' height='350' className='preview__poster'
                      src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`Movie name: ${title}`}
                      loading={"lazy"}/>
             </figure>

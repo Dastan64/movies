@@ -48,6 +48,11 @@ body {
     background-color: var(--background);
 }
 
+#root {
+    max-width: 1440px;
+    margin: 0 auto 0;
+}
+
 button, input {
     font-family: 'Museo', sans-serif;
 }

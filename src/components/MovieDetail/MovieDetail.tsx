@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./MovieDetail.scss";
 import { IMovieDetail } from "./types";
+import notFound from "../../assets/images/avatar.png"
 
 import { convertMinutesToHours } from "../../utils/convertMinutesToHours";
 import { useParams } from "react-router-dom";
@@ -22,7 +23,8 @@ const MovieDetail = () => {
                 <section className='movie'>
                     <div className="movie__container">
                         <figure className="movie__poster-container">
-                            <img src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`} alt={data?.title}
+                            <img width={500} height={750} src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`}
+                                 alt={data?.title}
                                  className="movie__poster" onLoad={() => <Loader/>}/>
                         </figure>
                         <div className="movie__info">
@@ -83,8 +85,12 @@ const MovieDetail = () => {
                                 return (
                                     <article className="star" key={actor.id}>
                                         <figure className='star__image-container'>
-                                            <img src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`} alt=""
-                                                 className="star__image" draggable={false}/>
+                                            {actor.profile_path ?
+                                                <img src={`https://image.tmdb.org/t/p/w300${actor.profile_path}`}
+                                                     alt={actor.name}
+                                                     className="star__image" draggable={false}/> :
+                                                <img src={notFound} alt={actor.name} className="star__image"
+                                                     draggable={false}/>}
                                         </figure>
                                         <span className="star__name">{actor.name}</span>
                                         <span className="star__role">{actor.character}</span>

@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #61bfad;
+  --secondary: #E54B4B;
+  --black: #000;
+  --white: #fff;
+  --dark: #212427;
+  --background: #1B1E2C;
+  --scrollbarThumb: #9ca3af;
+  --scrollbarDark: #555;
+  --excellentRating: #73a32f;
+  --midRating: #7e798f;
+  --badRating: red;
+}
+
+@font-face {
+  font-family: "Museo";
+  src: url("assets/fonts/MuseoSansCyrl-Light.woff2");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Museo";
+  src: url("assets/fonts/MuseoSansCyrl-Regular.woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Museo";
+  src: url("assets/fonts/MuseoSansCyrl-Bold.woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Museo";
+  src: url("assets/fonts/MuseoSansCyrl-ExtraBold.woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Museo', sans-serif;
+  background-color: var(--background);
+  color: var(--white);
+
+  img {
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+#root {
+  max-width: 1440px;
+  margin: 0 auto 0;
+
+
+  button, input {
+    font-family: 'Museo', sans-serif;
+  }
+
+  .main {
+    padding: 40px 0;
+    @media screen and (max-width: 768px) {
+      padding: 16px;
+    }
+  }
+}
+

@@ -1,0 +1,101 @@
+.slider {
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+
+  &__prev-button, &__next-button {
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-45%);
+    background-color: var(--white);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    z-index: 2;
+
+    &:disabled {
+      opacity: 0;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__prev-button {
+    left: -24px;
+
+    &_md {
+      left: 0;
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    svg {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__next-button {
+    right: -24px;
+
+    &_md {
+      right: 0;
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    &--disabled {
+      cursor: auto;
+      opacity: 0.7;
+    }
+  }
+}
+
+.swiper .swiper-button-next {
+  background-image: url("../../assets/images/icons/arrow-right.svg");
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: center;
+  background-color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transform: translate(50%);
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateX(65%);
+  }
+}
+
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper .swiper-button-prev {
+  background-image: url("../../assets/images/icons/arrow-right.svg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  transform: rotate(-180deg);
+}
+
+.swiper-button-prev::after {
+  display: none;
+}

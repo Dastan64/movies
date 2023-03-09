@@ -42,7 +42,7 @@
   }
 
   &__overview {
-    margin: 16px 0;
+    margin-bottom: 16px;
     font-size: calc(20 / 16) * 1rem;
     font-weight: 300;
     line-height: 1.5;
@@ -65,7 +65,7 @@
 
   &__rating-thumb {
     display: inline-block;
-    margin: 16px 0;
+    margin-bottom: 16px;
     gap: 8px;
     padding: 8px;
     border-radius: 4px;
@@ -98,7 +98,7 @@
   }
 
   &__brief-info {
-    margin-bottom: 16px;
+    margin: 16px 0;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -154,11 +154,11 @@
   }
 }
 
-.materials {
+.materials, .reviews {
   padding-top: 32px;
 
   &__title {
-    margin-bottom: 8px;
+    margin-bottom: 24px;
     font-size: calc((24 / 16) * 1rem);
     font-weight: 900;
   }

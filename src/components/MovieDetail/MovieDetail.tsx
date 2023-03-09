@@ -8,13 +8,14 @@ import { useParams } from "react-router-dom";
 import Loader from "../UI/Loader/Loader";
 import Slider from "../UI/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
+import VideoThumb from "../VideoThumb/VideoThumb";
 
 const MovieDetail = () => {
     const { id } = useParams();
     const [data, setData] = useState<IMovieDetail>();
 
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/movie/${id}?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&append_to_response=videos,credits`).then(response => response.json()).then(data => {
+        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/movie/${id}?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&append_to_response=videos,credits,reviews`).then(response => response.json()).then(data => {
             setData(data);
         });
     }, [])
@@ -32,10 +33,6 @@ const MovieDetail = () => {
                         <div className="movie__info">
                             <h1 className="movie__title">{data?.title}</h1>
                             {data.tagline && <span className='movie__tagline'>{data.tagline}</span>}
-                            <div className="movie__rating-thumb">
-                                {data.vote_average &&
-                                    <span>{data?.vote_average.toFixed(1)} </span>}
-                            </div>
                             <div className="movie__brief-info">
                                 <ul className="movie__genres-list">
                                     {data?.genres.slice(0, 3).map(genre => <li className='movie__genre-item'
@@ -59,6 +56,10 @@ const MovieDetail = () => {
                                     <span>{data?.runtime && convertMinutesToHours(data.runtime)}</span>
                                 </div>
                             </div>
+                            <div className="movie__rating-thumb">
+                                {data.vote_average &&
+                                    <span>{data?.vote_average.toFixed(1)} </span>}
+                            </div>
                             <p className='movie__overview'>{data?.overview}</p>
                             <ul className="movie__facts">
                                 <li className='movie__fact'>
@@ -79,8 +80,8 @@ const MovieDetail = () => {
                                 <Slider numberOfSlides={5} type="md">
                                     {data?.credits.cast && data?.credits.cast.slice(0, 12).map(actor => {
                                         return (
-                                            <SwiperSlide>
-                                                <article className="star" key={actor.id}>
+                                            <SwiperSlide key={actor.id}>
+                                                <article className="star">
                                                     <figure className='star__image-container'>
                                                         <img
                                                             width={100} height={100}
@@ -99,14 +100,20 @@ const MovieDetail = () => {
                         </div>
                     </div>
                     <section className="materials">
-                        <h2 className="materials__title">Trailers and extras materials</h2>
+                        <h2 className="materials__title">Trailers and extras materials:</h2>
                         <div className="materials__container">
-                            {data?.videos.results && data.videos.results.filter(v => v.site.toLowerCase().includes('youtube')).map(video => {
-                                return (
-                                    <img src={`http://img.youtube.com/vi/${video.key}/mqdefault.jpg`} alt=""/>
-                                )
-                            })}
+                            <Slider numberOfSlides={4} type="md">
+                                {data?.videos.results && data.videos.results.filter(v => v.site.toLowerCase().includes('youtube')).map(video =>
+                                    <SwiperSlide key={video.id}>
+                                        <VideoThumb info={video}/>
+                                    </SwiperSlide>
+                                )}
+                            </Slider>
+
                         </div>
+                    </section>
+                    <section className="reviews">
+                        <h2 className="reviews__title">Reviews:</h2>
                     </section>
                 </section>
             ) : <Loader/>}

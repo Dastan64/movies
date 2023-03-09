@@ -27,7 +27,7 @@ const Slider = ({ numberOfSlides, type, children }: SliderProps) => {
             slidesPerView: 4,
         },
         1024: {
-            slidesPerView: 5,
+            slidesPerView: numberOfSlides,
         }
     }
     return (
@@ -50,7 +50,6 @@ const Slider = ({ numberOfSlides, type, children }: SliderProps) => {
                 }}
                 onInit={(swiper) => {
                     if (swiper.params.navigation) {
-                        console.log(swiper.params.navigation)
                         //@ts-ignore
                         swiper.params.navigation.prevEl = navigationPrevRef.current;
                         //@ts-ignore

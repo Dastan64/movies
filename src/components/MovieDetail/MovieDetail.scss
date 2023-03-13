@@ -122,7 +122,7 @@
 }
 
 .starring {
-  padding-top: 24px;
+  padding-top: 48px;
 
   &__title {
     margin-bottom: 24px;
@@ -161,6 +161,19 @@
     margin-bottom: 24px;
     font-size: calc((24 / 16) * 1rem);
     font-weight: 900;
+  }
+}
+
+.reviews {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__number {
+    font-size: calc(13 / 16) * 1rem;
+    color: var(--smoke);
   }
 }
 

@@ -9,6 +9,7 @@ import Loader from "../UI/Loader/Loader";
 import Slider from "../UI/Slider/Slider";
 import { SwiperSlide } from "swiper/react";
 import VideoThumb from "../VideoThumb/VideoThumb";
+import Review from "../Review/Review";
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -113,7 +114,13 @@ const MovieDetail = () => {
                         </div>
                     </section>
                     <section className="reviews">
-                        <h2 className="reviews__title">Reviews:</h2>
+                        <h2 className="reviews__title">Reviews <sup
+                            className='reviews__number'>{data.reviews.total_results}</sup>:</h2>
+                        <div className="reviews__container">
+                            {data.reviews && data.reviews.results.map(review => {
+                                return <Review review={review} key={review.id}/>
+                            })}
+                        </div>
                     </section>
                 </section>
             ) : <Loader/>}

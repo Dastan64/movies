@@ -1,0 +1,28 @@
+.review {
+  &__author-nickname {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--smoke);
+    font-size: calc(13 / 16) * 1rem;
+    font-weight: 700;
+  }
+
+  &__text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    font-size: calc(16 / 16) * 1rem;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+  }
+
+  &__date {
+    font-size: calc(13 / 16) * 1rem;
+    color: var(--smoke);
+  }
+
+  &__info {
+    padding-top: 16px;
+  }
+}

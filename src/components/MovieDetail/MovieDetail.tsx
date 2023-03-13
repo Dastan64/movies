@@ -115,11 +115,17 @@ const MovieDetail = () => {
                     </section>
                     <section className="reviews">
                         <h2 className="reviews__title">Reviews <sup
-                            className='reviews__number'>{data.reviews.total_results}</sup>:</h2>
+                            className='reviews__number'>{data.reviews.total_results}</sup> :</h2>
                         <div className="reviews__container">
-                            {data.reviews && data.reviews.results.map(review => {
-                                return <Review review={review} key={review.id}/>
-                            })}
+                            <Slider numberOfSlides={3} type="md">
+                                {data.reviews && data.reviews.results.map(review => {
+                                    return (
+                                        <SwiperSlide key={review.id}>
+                                            <Review review={review}/>
+                                        </SwiperSlide>
+                                    )
+                                })}
+                            </Slider>
                         </div>
                     </section>
                 </section>

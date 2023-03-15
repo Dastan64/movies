@@ -3,6 +3,12 @@
   border-radius: 8px;
   background-color: rgba(0, 0, 0, .15);
 
+  &__avatar-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   &__author-avatar {
     width: 40px;
     height: 40px;
@@ -17,15 +23,33 @@
     font-weight: 900;
   }
 
-  &__rating-container {
+  &__rating {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 4px;
+    padding: 4px 8px;
+    border: 2px solid var(--badRating);
+    border-radius: 8px;
+    font-weight: 700;
+
+    &_bad {
+      border-color: var(--badRating);
+    }
+
+    &_mid {
+      border-color: var(--midRating);
+    }
+
+    &_good {
+      border-color: var(--excellentRating);
+    }
   }
 
   &__container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 8px;
     margin-bottom: 8px;
   }
@@ -43,19 +67,6 @@
   &__date {
     font-size: calc(13 / 16) * 1rem;
     color: var(--smoke);
-  }
-
-  &__rating {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px;
-    border-radius: 50%;
-    font-size: calc(18 / 16) * 1rem;
-    font-weight: 700;
-    background-color: red;
   }
 
   &__info {

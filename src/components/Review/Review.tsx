@@ -5,20 +5,26 @@ import { formatDate } from "../../utils/formatDate";
 
 //Assets
 import avatar from "../../assets/images/avatar.png";
-import star from "../../assets/images/icons/star.svg";
+import classNames from "classnames";
 
 const Review = ({ review }: ReviewProps) => {
     const { author_details: { username, rating, avatar_path }, content, created_at } = review;
+
+    const ratingClass = classNames({
+        'review__rating_good': rating >= 7,
+        'review__rating_mid': rating >= 5 && rating < 7,
+        'review__rating_bad': rating < 5,
+    })
+
     return (
         <article className='review'>
             <div className="review__container">
-                <img className='review__author-avatar'
-                     src={`${avatar_path ? `https://image.tmdb.org/t/p/original${avatar_path}` : avatar}`} alt=""/>
-                <span className='review__author-nickname'>{username ? username : 'unknown user'}</span>
-                <div className="review__rating-container">
-                    <img width={18} height={18} src={star} alt=""/>
-                    {rating}
+                <div className="review__avatar-container">
+                    <img className='review__author-avatar'
+                         src={`${avatar_path ? `https://image.tmdb.org/t/p/original${avatar_path}` : avatar}`} alt=""/>
+                    <span className='review__author-nickname'>{username ? username : 'unknown user'}</span>
                 </div>
+                {rating && <span className={`review__rating ${ratingClass}`}>{rating} / 10</span>}
             </div>
             <p className="review__text">{content}</p>
             <div className="review__info">

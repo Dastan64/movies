@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import { SwiperSlide } from "swiper/react";
+import { useParams } from "react-router-dom";
 import "./MovieDetail.scss";
 import { IMovieDetail } from "./types";
 import notFound from "../../assets/images/avatar.png"
 
 import { convertMinutesToHours } from "../../utils/convertMinutesToHours";
-import { useParams } from "react-router-dom";
+
+//Components
 import Loader from "../UI/Loader/Loader";
 import Slider from "../UI/Slider/Slider";
-import { SwiperSlide } from "swiper/react";
 import VideoThumb from "../VideoThumb/VideoThumb";
 import Review from "../Review/Review";
+import classNames from "classnames";
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -20,6 +23,12 @@ const MovieDetail = () => {
             setData(data);
         });
     }, [])
+
+    const ratingClass = classNames({
+        'rating_good': data?.vote_average! >= 7,
+        'rating_mid': data?.vote_average! >= 5 && data?.vote_average! < 7,
+        'rating_bad': data?.vote_average! < 5,
+    })
 
     return (
         <>
@@ -57,9 +66,9 @@ const MovieDetail = () => {
                                     <span>{data?.runtime && convertMinutesToHours(data.runtime)}</span>
                                 </div>
                             </div>
-                            <div className="movie__rating-thumb">
+                            <div className={`movie__rating-thumb ${ratingClass}`}>
                                 {data.vote_average &&
-                                    <span>{data?.vote_average.toFixed(1)} </span>}
+                                    <span className={ratingClass}>{data?.vote_average.toFixed(1)} </span>}
                             </div>
                             <p className='movie__overview'>{data?.overview}</p>
                             <ul className="movie__facts">

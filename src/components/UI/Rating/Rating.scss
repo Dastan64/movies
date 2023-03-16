@@ -1,0 +1,50 @@
+.rating {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 2px solid transparent;
+  
+  &.rating_type_solid {
+    &.rating_good {
+      background-color: var(--excellentRating);
+    }
+
+    &.rating_mid {
+      background-color: var(--midRating);
+    }
+
+    &.rating_bad {
+      background-color: var(--badRating);
+    }
+  }
+
+  &.rating_type_outlined {
+    &.rating_good {
+      border-color: var(--excellentRating);
+    }
+
+    &.rating_mid {
+      border-color: var(--midRating);
+    }
+
+    &.rating_bad {
+      border-color: var(--badRating);
+    }
+  }
+
+  &_size {
+    &_sm {
+      padding: 4px 8px;
+      font-size: 1rem;
+    }
+
+    &_big {
+      padding: 8px;
+      font-size: 1.5rem;
+    }
+  }
+}

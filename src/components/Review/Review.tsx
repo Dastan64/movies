@@ -5,16 +5,11 @@ import { formatDate } from "../../utils/formatDate";
 
 //Assets
 import avatar from "../../assets/images/avatar.png";
-import classNames from "classnames";
+import Rating from "../UI/Rating/Rating";
 
 const Review = ({ review }: ReviewProps) => {
     const { author_details: { username, rating, avatar_path }, content, created_at } = review;
 
-    const ratingClass = classNames({
-        'review__rating_good': rating >= 7,
-        'review__rating_mid': rating >= 5 && rating < 7,
-        'review__rating_bad': rating < 5,
-    })
 
     return (
         <article className='review'>
@@ -24,7 +19,7 @@ const Review = ({ review }: ReviewProps) => {
                          src={`${avatar_path ? `https://image.tmdb.org/t/p/original${avatar_path}` : avatar}`} alt=""/>
                     <span className='review__author-nickname'>{username ? username : 'unknown user'}</span>
                 </div>
-                {rating && <span className={`review__rating ${ratingClass}`}>{rating} / 10</span>}
+                {rating && <Rating rating={rating} type="outlined" bound size="sm"/>}
             </div>
             <p className="review__text">{content}</p>
             <div className="review__info">

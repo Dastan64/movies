@@ -42,24 +42,10 @@
   }
 
   &__overview {
-    margin-bottom: 16px;
+    margin: 16px 0;
     font-size: calc(20 / 16) * 1rem;
     font-weight: 300;
     line-height: 1.5;
-  }
-
-  .rating {
-    &_bad {
-      background-color: var(--badRating);
-    }
-
-    &_mid {
-      background-color: var(--midRating);
-    }
-
-    &_good {
-      background-color: var(--excellentRating);
-    }
   }
 
   .thumb {
@@ -68,17 +54,6 @@
     align-items: center;
     gap: 8px;
     padding: 8px 10px;
-  }
-
-  &__rating-thumb {
-    display: inline-block;
-    margin-bottom: 16px;
-    gap: 8px;
-    padding: 8px;
-    border-radius: 4px;
-    font-size: calc(24 / 16) * 1rem;
-    font-weight: 700;
-    background-color: var(--excellentRating);
   }
 
   &__genres-list {

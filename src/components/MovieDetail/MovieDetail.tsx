@@ -3,6 +3,10 @@ import { SwiperSlide } from "swiper/react";
 import { useParams } from "react-router-dom";
 import "./MovieDetail.scss";
 import { IMovieDetail } from "./types";
+
+//Assets
+import clock from "../../assets/images/icons/clock.svg"
+import calendar from "../../assets/images/icons/calendar.svg"
 import notFound from "../../assets/images/avatar.png"
 
 import { convertMinutesToHours } from "../../utils/convertMinutesToHours";
@@ -17,7 +21,7 @@ import PreviewCard from "../PreviewCard/PreviewCard";
 import Popup from "../Popup/Popup";
 
 const MovieDetail = () => {
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
     const { id } = useParams();
     const [data, setData] = useState<IMovieDetail>();
 
@@ -57,20 +61,11 @@ const MovieDetail = () => {
                                         key={genre.id}>{genre.name}</li>)}
                                 </ul>
                                 <div className="thumb">
-                                    <svg width={16} height={16} xmlns="http://www.w3.org/2000/svg" fill="none"
-                                         viewBox="0 0 24 24" strokeWidth={1.5}
-                                         stroke="#fff">
-                                        <path strokeLinecap="round" strokeLinejoin="round"
-                                              d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z"/>
-                                    </svg>
+                                    <img width={16} height={16} src={calendar} alt=""/>
                                     <span>{data?.release_date && new Date(data?.release_date).getFullYear()}</span>
                                 </div>
                                 <div className="thumb">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         strokeWidth={1.5} stroke="currentColor" width={16} height={16}>
-                                        <path strokeLinecap="round" strokeLinejoin="round"
-                                              d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
+                                    <img width={16} height={16} src={clock} alt=""/>
                                     <span>{data?.runtime && convertMinutesToHours(data.runtime)}</span>
                                 </div>
                             </div>
@@ -130,7 +125,6 @@ const MovieDetail = () => {
                         </div>
                     </section>
                     <Popup isOpen={isOpen} onClose={handleClose}/>
-
                     <section className="reviews">
                         <h2 className="reviews__title">Reviews <sup
                             className='reviews__number'>{data.reviews?.total_results}</sup> :</h2>

@@ -1,42 +1,49 @@
 export interface IMovieDetail {
-    adult: boolean;
-    backdrop_path: string | null;
-    belongs_to_collection: BelongsToCollection | null;
-    budget: number;
-    credits: {
+    adult?: boolean;
+    backdrop_path?: string | null;
+    belongs_to_collection?: BelongsToCollection | null;
+    budget?: number;
+    credits?: {
         cast: Cast[];
         crew: Crew[];
     }
-    genres: Genre[];
-    homepage: string | null;
-    id: number;
-    imdb_id: string | null;
-    original_language: string;
-    original_title: string;
-    overview: string | null;
-    popularity: number;
-    poster_path: string | null;
-    production_companies: ProductionCompany[];
-    production_countries: ProductionCountry[];
-    release_date: string;
-    revenue: number;
-    runtime: number | null;
-    spoken_languages: SpokenLanguage[];
-    videos: {
+    genres?: Genre[];
+    homepage?: string | null;
+    id?: number;
+    imdb_id?: string | null;
+    original_language?: string;
+    original_title?: string;
+    overview?: string | null;
+    popularity?: number;
+    poster_path?: string | null;
+    production_companies?: ProductionCompany[];
+    production_countries?: ProductionCountry[];
+    release_date?: string;
+    revenue?: number;
+    runtime?: number | null;
+    spoken_languages?: SpokenLanguage[];
+    videos?: {
         results: Result[],
     };
-    status: string;
-    tagline: string | null;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-    reviews: {
+    status?: string;
+    tagline?: string | null;
+    title?: string;
+    video?: boolean;
+    vote_average?: number;
+    vote_count?: number;
+    reviews?: {
         page: number;
         total_pages: number;
         total_results: number;
         results: Review[];
-    }
+    },
+    recommendations?: {
+        page: number;
+        total_pages: number;
+        total_results: number;
+        results: Recommendation[],
+    },
+
 }
 
 export interface BelongsToCollection {
@@ -130,4 +137,22 @@ export interface AuthorDetails {
     username: string;
     avatar_path: string;
     rating: number;
+}
+
+export interface Recommendation {
+    adult: boolean;
+    backdrop_path: string | null;
+    genre_ids: number[];
+    id: number;
+    media_type: string;
+    original_language: string;
+    original_title: string;
+    overview: string;
+    popularity: number;
+    poster_path: string | null;
+    release_date: string;
+    title: string;
+    video: boolean;
+    vote_average: number;
+    vote_count: number;
 }

@@ -9,8 +9,7 @@ import Rating from "../UI/Rating/Rating";
 
 const Review = ({ review }: ReviewProps) => {
     const { author_details: { username, rating, avatar_path }, content, created_at } = review;
-
-
+    
     return (
         <article className='review'>
             <div className="review__container">

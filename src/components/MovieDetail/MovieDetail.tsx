@@ -14,8 +14,10 @@ import VideoThumb from "../VideoThumb/VideoThumb";
 import Review from "../Review/Review";
 import Rating from "../UI/Rating/Rating";
 import PreviewCard from "../PreviewCard/PreviewCard";
+import Popup from "../Popup/Popup";
 
 const MovieDetail = () => {
+    const [isOpen, setIsOpen] = useState(true);
     const { id } = useParams();
     const [data, setData] = useState<IMovieDetail>();
 
@@ -30,6 +32,10 @@ const MovieDetail = () => {
 
         window.scrollTo(0, 0)
     }, [id])
+
+    const handleClose = () => {
+        setIsOpen(false);
+    }
 
     return (
         <>
@@ -123,6 +129,8 @@ const MovieDetail = () => {
                             </Slider>
                         </div>
                     </section>
+                    <Popup isOpen={isOpen} onClose={handleClose}/>
+
                     <section className="reviews">
                         <h2 className="reviews__title">Reviews <sup
                             className='reviews__number'>{data.reviews?.total_results}</sup> :</h2>

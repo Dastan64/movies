@@ -1,0 +1,29 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 4;
+
+  &_hidden {
+    display: none;
+  }
+
+  &__content {
+    color: var(--black);
+    background-color: var(--white);
+    position: relative;
+  }
+
+  &__close-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}

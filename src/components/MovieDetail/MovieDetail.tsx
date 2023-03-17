@@ -81,10 +81,12 @@ const MovieDetail = () => {
                                         className="movie__fact-caption">Production</span>: {data?.production_companies?.map((company, index) => {
                                     return <span key={company.id}>{(index ? ', ' : '') + company.name}</span>
                                 })}</li>
-                                <li className='movie__fact'>
-                                    <span className="movie__fact-caption">Revenue</span>:
-                                    ${data?.revenue?.toLocaleString()}
-                                </li>
+                                {(data?.revenue || 0 > 0) &&
+                                    <li className='movie__fact'>
+                                        <span
+                                            className="movie__fact-caption">Revenue</span>:
+                                        ${data?.revenue?.toLocaleString()}
+                                    </li>}
                             </ul>
                             <section className="starring">
                                 <Slider numberOfSlides={5} type="md">

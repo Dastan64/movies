@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 
 import posterNotFound from "../../assets/images/poster-not-found.png";
 
-const PreviewCard = ({ preview }: PreviewCardProps) => {
+const PreviewCard = ({ preview, type }: PreviewCardProps) => {
     const { poster_path, title, release_date, vote_average, id } = preview;
     return (
         <Link to={`/movies/${id}`}>
             <article className='preview'>
                 <figure>
-                    <img draggable={false} width='300' height='350' className='preview__poster'
+                    <img draggable={false} width='300' height='400'
+                         className={`preview__poster ${type ? `preview__poster_${type}` : ''}`}
                          src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : posterNotFound}
                          alt={`Movie name: ${title}`}
                          loading={"lazy"}/>

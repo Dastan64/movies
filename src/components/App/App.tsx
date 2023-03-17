@@ -34,7 +34,7 @@ const App = () => {
                     <Slider numberOfSlides={5} type="md">
                         {popular.map(movie => {
                             return (
-                                <SwiperSlide>
+                                <SwiperSlide key={movie.id}>
                                     <PreviewCard preview={movie}/>
                                 </SwiperSlide>
                             )

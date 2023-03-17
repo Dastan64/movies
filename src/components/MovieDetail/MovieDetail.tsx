@@ -137,11 +137,11 @@ const MovieDetail = () => {
                     <section className="recommended">
                         <h2 className="recommended__title">We recommend to watch:</h2>
                         <div className="recommended__container">
-                            <Slider numberOfSlides={5}>
+                            <Slider numberOfSlides={7} type="md">
                                 {data.recommendations?.results.map(movie => {
                                     return (
                                         <SwiperSlide key={movie.id}>
-                                            <PreviewCard preview={movie}/>
+                                            <PreviewCard preview={movie} type="sm"/>
                                         </SwiperSlide>
                                     )
                                 })}

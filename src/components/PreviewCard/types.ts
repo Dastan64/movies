@@ -18,4 +18,5 @@ export interface IPreviewCard {
 
 export interface PreviewCardProps {
     preview: IPreviewCard,
+    type?: string,
 }

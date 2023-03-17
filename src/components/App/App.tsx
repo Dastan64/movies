@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import './App.scss'
-
-import PreviewCardsList from "../PreviewCardsList/PreviewCardsList";
+import { SwiperSlide } from "swiper/react";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { IPreviewCard } from "../PreviewCard/types";
 
+//Features
 import { getPopularMovies } from "../../features/movies-popular/popularMoviesSlice";
 import { getTopRatedMovies } from "../../features/movies-top-rated/topRatedMoviesSlice";
 import { getUpcomingMovies } from "../../features/movies-upcoming/upcomingMoviesSlice";
+
+//Components
 import Slider from "../UI/Slider/Slider";
-import { SwiperSlide } from "swiper/react";
 import PreviewCard from "../PreviewCard/PreviewCard";
 
 const App = () => {

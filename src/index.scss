@@ -19,6 +19,10 @@
   --badRating: red;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @font-face {
   font-family: "Museo";
   src: url("assets/fonts/MuseoSansCyrl-Light.woff2");

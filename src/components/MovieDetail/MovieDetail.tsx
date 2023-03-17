@@ -27,7 +27,9 @@ const MovieDetail = () => {
         fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/movie/${id}/recommendations?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}`).then(response => response.json()).then(recommendations => {
             setData(prevData => ({ ...prevData, recommendations, }))
         }).catch(error => console.log(error));
-    }, [])
+
+        window.scrollTo(0, 0)
+    }, [id])
 
     return (
         <>
@@ -124,7 +126,7 @@ const MovieDetail = () => {
                             className='reviews__number'>{data.reviews?.total_results}</sup> :</h2>
                         <div className="reviews__container">
                             <Slider numberOfSlides={3} type="md">
-                                {data?.reviews?.results.map(review => {
+                                {data.reviews?.results.map(review => {
                                     return (
                                         <SwiperSlide key={review.id}>
                                             <Review review={review}/>
@@ -138,7 +140,7 @@ const MovieDetail = () => {
                         <h2 className="recommended__title">We recommend to watch:</h2>
                         <div className="recommended__container">
                             <Slider numberOfSlides={7} type="md">
-                                {data.recommendations?.results.map(movie => {
+                                {(data.recommendations?.results.length ?? 0 > 0) && data.recommendations?.results.map(movie => {
                                     return (
                                         <SwiperSlide key={movie.id}>
                                             <PreviewCard preview={movie} type="sm"/>

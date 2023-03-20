@@ -6,24 +6,38 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &_hidden {
     display: none;
   }
 
   &__content {
-    color: var(--black);
-    background-color: var(--white);
+    width: 90%;
     position: relative;
   }
 
   &__close-btn {
     position: absolute;
+    top: -60px;
+    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     background-color: transparent;
     cursor: pointer;
+    @media screen and (max-width: 576px) {
+      top: -40px;
+    }
+  }
+
+  &__close-icon {
+    @media screen and (max-width: 576px) {
+      width: 36px;
+      height: 36px;
+    }
   }
 }

@@ -22,6 +22,7 @@ import Popup from "../Popup/Popup";
 
 const MovieDetail = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [iframeId, setIframeId] = useState('');
     const { id } = useParams();
     const [data, setData] = useState<IMovieDetail>();
 
@@ -39,6 +40,12 @@ const MovieDetail = () => {
 
     const handleClose = () => {
         setIsOpen(false);
+        setIframeId('');
+    }
+
+    const handleVideoThumbClick = (id: string) => {
+        setIsOpen(true);
+        setIframeId(id);
     }
 
     return (
@@ -118,13 +125,19 @@ const MovieDetail = () => {
                             <Slider numberOfSlides={4} type="md">
                                 {data?.videos?.results && data.videos.results.filter(v => v.site.toLowerCase().includes('youtube')).map(video =>
                                     <SwiperSlide key={video.id}>
-                                        <VideoThumb info={video}/>
+                                        <VideoThumb info={video} onClick={handleVideoThumbClick}/>
                                     </SwiperSlide>
                                 )}
                             </Slider>
                         </div>
                     </section>
-                    <Popup isOpen={isOpen} onClose={handleClose}/>
+                    <Popup isOpen={isOpen} onClose={handleClose}>
+                        {iframeId && <iframe className='movie__iframe' width="100%" height="715"
+                                             src={`https://www.youtube.com/embed/${iframeId}`}
+                                             title="YouTube video player" frameBorder="0"
+                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                             allowFullScreen></iframe>}
+                    </Popup>
                     <section className="reviews">
                         <h2 className="reviews__title">Reviews <sup
                             className='reviews__number'>{data.reviews?.total_results}</sup> :</h2>

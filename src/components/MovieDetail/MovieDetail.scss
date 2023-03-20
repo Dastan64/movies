@@ -98,6 +98,12 @@
     list-style: none;
   }
 
+  &__iframe {
+    @media screen and (max-width: 600px) {
+      height: 315px;
+    }
+  }
+
   &__fact-caption {
     font-weight: 700;
   }

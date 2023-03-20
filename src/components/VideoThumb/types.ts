@@ -1,6 +1,7 @@
 import { Result } from "../MovieDetail/types";
 
 export interface VideoThumbProps {
-    info: Result
+    info: Result,
+    onClick: (id: string) => void;
 }
 

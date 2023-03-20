@@ -1,9 +1,10 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import "./SearchPanel.scss";
+import { useNavigate } from "react-router-dom";
 
 const SearchPanel = () => {
     const [value, setValue] = useState('');
-
+    const navigate = useNavigate();
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     }

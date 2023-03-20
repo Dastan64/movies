@@ -9,6 +9,11 @@
     justify-content: space-between;
   }
 
+  &__logo {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
   .list {
     display: flex;
     gap: 16px;
@@ -16,8 +21,13 @@
 
     &__link {
       text-decoration: none;
-      color: #000;
-      border-bottom: 2px solid var(--primary);
+      color: var(--white);
+      font-size: calc(16 / 16) * 1rem;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
 }

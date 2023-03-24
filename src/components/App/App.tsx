@@ -31,24 +31,45 @@ const App = () => {
             <div className="wrapper">
                 <section className="app__section upcoming">
                     <h2 className="upcoming__title app__section-title">Upcoming:</h2>
-                    {/*<PreviewCardsList movies={upcoming}/>*/}
-                    <Slider numberOfSlides={5} type="md">
-                        {popular.map(movie => {
-                            return (
-                                <SwiperSlide key={movie.id}>
-                                    <PreviewCard preview={movie}/>
-                                </SwiperSlide>
-                            )
-                        })}
-                    </Slider>
+                    {upcoming.length > 0 && (
+                        <Slider numberOfSlides={5} type="md">
+                            {upcoming.map(movie => {
+                                return (
+                                    <SwiperSlide key={movie.id}>
+                                        <PreviewCard preview={movie}/>
+                                    </SwiperSlide>
+                                )
+                            })}
+                        </Slider>
+                    )}
                 </section>
                 <section className="app__section popular">
                     <h2 className="popular__title app__section-title">Popular movies:</h2>
-                    {/*<PreviewCardsList movies={popular}/>*/}
+                    {popular.length > 0 && (
+                        <Slider numberOfSlides={5} type="md">
+                            {popular.map(movie => {
+                                return (
+                                    <SwiperSlide key={movie.id}>
+                                        <PreviewCard preview={movie}/>
+                                    </SwiperSlide>
+                                )
+                            })}
+                        </Slider>
+                    )}
                 </section>
                 <section className="app__section rated">
                     <h2 className="rated__title app__section-title">Top Rated movies:</h2>
-                    {/*<PreviewCardsList movies={topRated}/>*/}
+                    {topRated.length > 0 && (
+                        <Slider numberOfSlides={5} type="md">
+                            {topRated.map(movie => {
+                                return (
+                                    <SwiperSlide key={movie.id}>
+                                        <PreviewCard preview={movie}/>
+                                    </SwiperSlide>
+                                )
+                            })}
+                        </Slider>
+                    )}
                 </section>
             </div>
         </div>

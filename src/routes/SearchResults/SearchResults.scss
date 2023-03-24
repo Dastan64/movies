@@ -1,0 +1,20 @@
+.results {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-size: calc(24 / 16) * 1rem;
+  }
+
+  &__text {
+    line-height: 1.5;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}

@@ -1,20 +1,25 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import "./SearchPanel.scss";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../hooks/hooks";
+import { searchMovies } from "../../features/movies-searched/searchedMoviesSlice";
 
 const SearchPanel = () => {
     const [value, setValue] = useState('');
     const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);
     }
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        fetch(`${import.meta.env.VITE_REACT_APP_BASE_URL}/search/movie?api_key=${import.meta.env.VITE_REACT_APP_API_KEY}&query=${value}`).then(response => response.json()).then(data => {
-            console.log(data)
-        });
+        dispatch(searchMovies(value));
+        navigate(`/results?query=${value}`);
+
     }
+
     return (
         <div className='search'>
             <form action="" className="search__form" onSubmit={handleSubmit}>

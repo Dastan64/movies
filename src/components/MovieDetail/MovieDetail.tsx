@@ -76,7 +76,7 @@ const MovieDetail = () => {
                                     <span>{data?.runtime && convertMinutesToHours(data.runtime)}</span>
                                 </div>
                             </div>
-                            {data.vote_average &&
+                            {typeof data.vote_average === 'number' && data.vote_average !== 0 &&
                                 <Rating rating={+data?.vote_average.toFixed(1)} type="solid" size="big"/>}
                             <p className='movie__overview'>{data?.overview}</p>
                             <ul className="movie__facts">
@@ -119,18 +119,18 @@ const MovieDetail = () => {
                             </section>
                         </div>
                     </div>
-                    <section className="materials">
+                    {data?.videos?.results && data.videos.results.length > 0 && <section className="materials">
                         <h2 className="materials__title">Trailers and extras materials:</h2>
                         <div className="materials__container">
                             <Slider numberOfSlides={4} type="md">
-                                {data?.videos?.results && data.videos.results.filter(v => v.site.toLowerCase().includes('youtube')).map(video =>
+                                {data.videos.results && data.videos.results.filter(v => v.site.toLowerCase().includes('youtube')).map(video =>
                                     <SwiperSlide key={video.id}>
                                         <VideoThumb info={video} onClick={handleVideoThumbClick}/>
                                     </SwiperSlide>
                                 )}
                             </Slider>
                         </div>
-                    </section>
+                    </section>}
                     <Popup isOpen={isOpen} onClose={handleClose}>
                         {iframeId && <iframe className='movie__iframe' width="100%" height="715"
                                              src={`https://www.youtube.com/embed/${iframeId}`}
@@ -138,12 +138,12 @@ const MovieDetail = () => {
                                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                              allowFullScreen></iframe>}
                     </Popup>
-                    <section className="reviews">
+                    {data.reviews?.results && data.reviews.results.length > 0 && <section className="reviews">
                         <h2 className="reviews__title">Reviews <sup
                             className='reviews__number'>{data.reviews?.total_results}</sup> :</h2>
                         <div className="reviews__container">
                             <Slider numberOfSlides={3} type="md">
-                                {data.reviews?.results.map(review => {
+                                {data.reviews.results.map(review => {
                                     return (
                                         <SwiperSlide key={review.id}>
                                             <Review review={review}/>
@@ -152,21 +152,22 @@ const MovieDetail = () => {
                                 })}
                             </Slider>
                         </div>
-                    </section>
-                    <section className="recommended">
-                        <h2 className="recommended__title">We recommend to watch:</h2>
-                        <div className="recommended__container">
-                            <Slider numberOfSlides={7} type="md">
-                                {(data.recommendations?.results.length ?? 0 > 0) && data.recommendations?.results.map(movie => {
-                                    return (
-                                        <SwiperSlide key={movie.id}>
-                                            <PreviewCard preview={movie} type="sm"/>
-                                        </SwiperSlide>
-                                    )
-                                })}
-                            </Slider>
-                        </div>
-                    </section>
+                    </section>}
+                    {data.recommendations?.results && data.recommendations?.results.length > 0 &&
+                        <section className="recommended">
+                            <h2 className="recommended__title">We recommend to watch:</h2>
+                            <div className="recommended__container">
+                                <Slider numberOfSlides={7} type="md">
+                                    {data.recommendations.results.map(movie => {
+                                        return (
+                                            <SwiperSlide key={movie.id}>
+                                                <PreviewCard preview={movie} type="sm"/>
+                                            </SwiperSlide>
+                                        )
+                                    })}
+                                </Slider>
+                            </div>
+                        </section>}
                 </section>
             ) : <Loader/>}
         </>

@@ -97,7 +97,7 @@ const MovieDetail = () => {
                                     </li>}
                             </ul>
                             <section className="starring">
-                                <Slider numberOfSlides={5} type="md">
+                                <Slider numberOfSlides={5} type="md" mobileNumberOfSlides={2}>
                                     {data?.credits?.cast.slice(0, 12).map(actor => {
                                         return (
                                             <SwiperSlide key={actor.id}>
@@ -142,7 +142,7 @@ const MovieDetail = () => {
                         <h2 className="reviews__title">Reviews <sup
                             className='reviews__number'>{data.reviews?.total_results}</sup> :</h2>
                         <div className="reviews__container">
-                            <Slider numberOfSlides={3} type="md">
+                            <Slider numberOfSlides={3} type="md" mobileNumberOfSlides={1}>
                                 {data.reviews.results.map(review => {
                                     return (
                                         <SwiperSlide key={review.id}>
@@ -157,7 +157,7 @@ const MovieDetail = () => {
                         <section className="recommended">
                             <h2 className="recommended__title">We recommend to watch:</h2>
                             <div className="recommended__container">
-                                <Slider numberOfSlides={7} type="md">
+                                <Slider numberOfSlides={7} type="md" mobileNumberOfSlides={2}>
                                     {data.recommendations.results.map(movie => {
                                         return (
                                             <SwiperSlide key={movie.id}>

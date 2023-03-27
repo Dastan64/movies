@@ -10,18 +10,18 @@ import 'swiper/css/navigation';
 import { SliderProps } from "./types";
 import { Navigation } from "swiper";
 
-const Slider = ({ numberOfSlides, type, children }: SliderProps) => {
+const Slider = ({ numberOfSlides, mobileNumberOfSlides, type, children }: SliderProps) => {
     const navigationPrevRef = useRef(null)
     const navigationNextRef = useRef(null)
     const breakpoints = {
         320: {
-            slidesPerView: 1,
+            slidesPerView: mobileNumberOfSlides || 1,
         },
         450: {
-            slidesPerView: 2,
+            slidesPerView: mobileNumberOfSlides || 2,
         },
         576: {
-            slidesPerView: 3,
+            slidesPerView: 2,
         },
         768: {
             slidesPerView: 4,

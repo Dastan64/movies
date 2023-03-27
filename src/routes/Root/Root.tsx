@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 const Root = () => {
     return (
         <>
-            <Header/>
+            {/*<Header/>*/}
             <main className="main">
                 <Outlet/>
             </main>

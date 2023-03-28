@@ -63,7 +63,8 @@ const MovieDetail = () => {
                             {data.tagline && <span className='movie__tagline'>{data.tagline}</span>}
                             <div className="movie__brief-info">
                                 {typeof data.vote_average === 'number' && data.vote_average !== 0 &&
-                                    <Rating rating={+data?.vote_average} type="solid" size="big"/>}
+                                    <Rating rating={data?.vote_average.toFixed(1)} type="solid"
+                                            size="big"/>}
                                 <ul className="movie__genres-list">
                                     {data && data.genres && data?.genres.slice(0, 2).map(genre => <li
                                         className='movie__genre-item'

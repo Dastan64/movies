@@ -16,7 +16,7 @@ const Rating = ({ rating, type, bound, size }: RatingProps) => {
 
     return (
         <div className={`rating ${ratingClass}`}>
-            <span>{rating.toFixed(1)} {bound ? '/ 10' : ''}</span>
+            <span>{rating} {bound ? '/ 10' : ''}</span>
         </div>
     );
 };

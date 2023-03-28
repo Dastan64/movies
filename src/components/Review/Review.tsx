@@ -31,7 +31,7 @@ const Review = ({ review }: ReviewProps) => {
                          alt=""/>
                     <span className='review__author-nickname'>{username ? username : 'unknown user'}</span>
                 </div>
-                {rating && <Rating rating={rating} type="outlined" bound size="sm"/>}
+                {rating && <Rating rating={parseFloat(rating.toFixed(1))} type="outlined" bound size="sm"/>}
             </div>
             <p className="review__text">{content}</p>
             <div className="review__info">

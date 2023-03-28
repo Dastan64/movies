@@ -1,5 +1,5 @@
 export interface RatingProps {
-    rating: number;
+    rating: number | string;
     type?: 'outlined' | 'solid';
     bound?: boolean,
     size?: 'sm' | 'big',

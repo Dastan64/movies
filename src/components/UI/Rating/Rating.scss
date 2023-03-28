@@ -7,7 +7,7 @@
   border-radius: 8px;
   font-weight: 700;
   border: 2px solid transparent;
-  
+
   &.rating_type_solid {
     &.rating_good {
       background-color: var(--excellentRating);
@@ -45,6 +45,9 @@
     &_big {
       padding: 8px;
       font-size: 1.5rem;
+      @media screen and (max-width: 576px) {
+        font-size: calc(18 / 16) * 1rem;
+      }
     }
   }
 }

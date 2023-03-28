@@ -62,8 +62,10 @@ const MovieDetail = () => {
                             <h1 className="movie__title">{data?.title}</h1>
                             {data.tagline && <span className='movie__tagline'>{data.tagline}</span>}
                             <div className="movie__brief-info">
+                                {typeof data.vote_average === 'number' && data.vote_average !== 0 &&
+                                    <Rating rating={+data?.vote_average} type="solid" size="big"/>}
                                 <ul className="movie__genres-list">
-                                    {data && data.genres && data?.genres.slice(0, 3).map(genre => <li
+                                    {data && data.genres && data?.genres.slice(0, 2).map(genre => <li
                                         className='movie__genre-item'
                                         key={genre.id}>{genre.name}</li>)}
                                 </ul>
@@ -76,8 +78,6 @@ const MovieDetail = () => {
                                     <span>{data?.runtime && convertMinutesToHours(data.runtime)}</span>
                                 </div>
                             </div>
-                            {typeof data.vote_average === 'number' && data.vote_average !== 0 &&
-                                <Rating rating={+data?.vote_average.toFixed(1)} type="solid" size="big"/>}
                             <p className='movie__overview'>{data?.overview}</p>
                             <ul className="movie__facts">
                                 <li className='movie__fact'>

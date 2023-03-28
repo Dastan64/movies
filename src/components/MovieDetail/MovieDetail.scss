@@ -6,6 +6,9 @@
       flex-direction: column;
       gap: 32px;
     }
+    @media screen and (min-width: 1024px) {
+      align-items: center;
+    }
   }
 
   &__poster-container {
@@ -14,7 +17,7 @@
 
   &__poster {
     display: block;
-    border-radius: 8px;
+    border-radius: 16px;
     @media screen and (max-width: 768px) {
       height: 500px;
     }
@@ -30,7 +33,7 @@
     font-weight: 900;
     line-height: 1.1;
     @media screen and (max-width: 768px) {
-      font-size: calc((48 / 16) * 1rem);
+      font-size: calc((32 / 16) * 1rem);
     }
   }
 
@@ -46,6 +49,9 @@
     font-size: calc(20 / 16) * 1rem;
     font-weight: 300;
     line-height: 1.5;
+    @media screen and (max-width: 576px) {
+      font-size: calc(16 / 16) * 1rem;
+    }
   }
 
   .thumb {
@@ -53,7 +59,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 10px;
   }
 
   &__genres-list {
@@ -85,7 +90,7 @@
     align-items: center;
     gap: 16px;
     @media screen and (max-width: 768px) {
-      gap: 8px;
+      font-size: calc(14 / 16) * 1rem;
     }
   }
 
@@ -96,6 +101,10 @@
     font-size: calc(16 / 16) * 1rem;
     font-weight: 300;
     list-style: none;
+
+    span {
+      line-height: 1.5;
+    }
   }
 
   &__iframe {
@@ -148,7 +157,10 @@
 }
 
 .materials, .reviews, .recommended {
-  padding-top: 32px;
+  padding-top: 64px;
+  @media screen and (max-width: 576px) {
+    padding-top: 32px;
+  }
 
   &__title {
     margin-bottom: 24px;

@@ -33,6 +33,17 @@
   &__prev-button {
     left: -24px;
 
+    @media screen and (max-width: 576px) {
+      left: 0;
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
     &_md {
       left: 0;
       width: 36px;
@@ -51,6 +62,17 @@
 
   &__next-button {
     right: -24px;
+
+    @media screen and (max-width: 576px) {
+      right: 0;
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
 
     &_md {
       right: 0;

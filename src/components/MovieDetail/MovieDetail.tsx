@@ -14,9 +14,9 @@ import Loader from "../UI/Loader/Loader";
 import Slider from "../UI/Slider/Slider";
 import Rating from "../UI/Rating/Rating";
 import Popup from "../Popup/Popup";
-import ReviewsSection from "./Reviews/ReviewsSection";
-import RecommendationsSection from "./Recommendations/RecommendationsSection";
-import VideosSection from "./Videos/VideosSection";
+import ReviewsSection from "./ReviewsSection/ReviewsSection";
+import RecommendationsSection from "./RecommendationsSection/RecommendationsSection";
+import VideosSection from "./VideosSection/VideosSection";
 import StarringSection from "./StarringSection/StarringSection";
 
 const MovieDetail = () => {

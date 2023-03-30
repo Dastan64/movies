@@ -8,9 +8,19 @@
     border-radius: 8px;
     object-fit: cover;
 
-    &_sm {
+    @media screen and (max-width: 576px) {
+      width: 190px;
+      height: 240px;
+    }
+
+    &_md {
       width: 190px;
       height: 280px;
+    }
+
+    &_sm {
+      width: 190px;
+      height: 240px;
     }
   }
 

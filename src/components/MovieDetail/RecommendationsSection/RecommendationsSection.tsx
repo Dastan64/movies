@@ -28,7 +28,7 @@ const RecommendationsSection = ({ recommendations }: RecommendationsSectionProps
                     {recommendations?.results.map(movie => {
                         return (
                             <SwiperSlide key={movie.id}>
-                                <PreviewCard preview={movie} type="sm"/>
+                                <PreviewCard preview={movie} type="md"/>
                             </SwiperSlide>
                         )
                     })}

@@ -6,9 +6,9 @@
   }
 
   &__section-title {
-    margin-bottom: 24px;
+    margin-bottom: clamp(16px, 2vw, 24px);
     font-weight: 900;
-    font-size: calc((36 / 16) * 1rem);
+    font-size: clamp(calc((24 / 16) * 1rem), 2vw, calc((36 / 16) * 1rem));
     color: var(--white);
   }
 }

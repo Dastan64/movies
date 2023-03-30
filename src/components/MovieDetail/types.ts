@@ -1,3 +1,9 @@
+import { Review } from "../../@types/Review";
+import { Recommendation } from "../../@types/Recommendation";
+import { Video } from "../../@types/Video";
+import { Cast } from "../../@types/Cast";
+import { Crew } from "../../@types/Crew";
+
 export interface IMovieDetail {
     adult?: boolean;
     backdrop_path?: string | null;
@@ -23,7 +29,7 @@ export interface IMovieDetail {
     runtime?: number | null;
     spoken_languages?: SpokenLanguage[];
     videos?: {
-        results: Result[],
+        results: Video[],
     };
     status?: string;
     tagline?: string | null;
@@ -76,83 +82,5 @@ export interface SpokenLanguage {
     name: string;
 }
 
-export interface Cast {
-    adult: boolean;
-    gender: number | null;
-    id: number;
-    known_for_department: string;
-    name: string;
-    original_name: string;
-    popularity: number;
-    profile_path: string | null;
-    cast_id: number;
-    character: string;
-    credit_id: string;
-    order: number;
-}
 
-export interface Crew {
-    adult: boolean;
-    gender: number | null;
-    id: number;
-    known_for_department: string;
-    name: string;
-    original_name: string;
-    popularity: number;
-    profile_path: string | null;
-    credit_id: string;
-    department: string;
-    job: string;
-}
 
-export interface Result {
-    iso_639_1: string;
-    iso_3166_1: string;
-    name: string;
-    key: string;
-    site: string;
-    size: number;
-    type: string;
-    official: boolean;
-    published_at: Date;
-    id: string;
-}
-
-export interface Review {
-    id: string;
-    author: string;
-    author_details: AuthorDetails;
-    content: string;
-    created_at: Date;
-    updated_at: Date;
-    url: string;
-    iso_639_1: string;
-    media_id: number;
-    media_title: string;
-    media_type: string;
-}
-
-export interface AuthorDetails {
-    name: string;
-    username: string;
-    avatar_path: string;
-    rating: number;
-}
-
-export interface Recommendation {
-    adult: boolean;
-    backdrop_path: string | null;
-    genre_ids: number[];
-    id: number;
-    media_type: string;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string | null;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
-}

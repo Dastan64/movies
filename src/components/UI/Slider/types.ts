@@ -1,8 +1,11 @@
 import React from "react";
 
 export interface SliderProps {
-    numberOfSlides: number;
-    mobileNumberOfSlides?: number;
+    options?: {
+        [breakpoint: number]: {
+            slidesPerView: number;
+        }
+    }
     type?: string;
     children: React.ReactNode,
 }

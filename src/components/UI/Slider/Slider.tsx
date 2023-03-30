@@ -10,25 +10,22 @@ import 'swiper/css/navigation';
 import { SliderProps } from "./types";
 import { Navigation } from "swiper";
 
-const Slider = ({ numberOfSlides, mobileNumberOfSlides, type, children }: SliderProps) => {
+const Slider = ({ options, type, children }: SliderProps) => {
     const navigationPrevRef = useRef(null)
     const navigationNextRef = useRef(null)
-    const breakpoints = {
+    const defaultOptions = {
         320: {
-            slidesPerView: mobileNumberOfSlides || 1,
+            slidesPerView: 1,
         },
         450: {
-            slidesPerView: mobileNumberOfSlides || 2,
+            slidesPerView: 2,
         },
         576: {
-            slidesPerView: 2,
+            slidesPerView: 3,
         },
         768: {
             slidesPerView: 4,
         },
-        1024: {
-            slidesPerView: numberOfSlides,
-        }
     }
     return (
         <div className='slider'>
@@ -41,9 +38,8 @@ const Slider = ({ numberOfSlides, mobileNumberOfSlides, type, children }: Slider
             </button>
             <Swiper
                 modules={[Navigation]}
-                breakpoints={breakpoints}
+                breakpoints={options || defaultOptions}
                 spaceBetween={20}
-                slidesPerView={numberOfSlides}
                 navigation={{
                     prevEl: navigationPrevRef.current,
                     nextEl: navigationNextRef.current,

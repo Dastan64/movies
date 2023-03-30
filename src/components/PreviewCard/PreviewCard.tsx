@@ -27,7 +27,7 @@ const PreviewCard = ({ preview, type }: PreviewCardProps) => {
                     </svg>
                     <span>{vote_average ? vote_average.toFixed(1) : 'N/A'}</span>
                 </div>
-                <span className="preview__date">{release_date ? new Date(release_date).getFullYear() : 'unknown'}</span>
+                <span className="preview__date">{release_date ? new Date(release_date).getFullYear() : 'N/A'}</span>
             </article>
         </Link>
     );

@@ -11,6 +11,7 @@ import { getUpcomingMovies } from "../../features/movies-upcoming/upcomingMovies
 
 //Components
 import MoviesSlider from "../MoviesSlider/MoviesSlider";
+import Hero from "../Hero/Hero";
 
 const App = () => {
     const popular = useAppSelector<IPreviewCard[]>(state => state.popular.movies)
@@ -25,6 +26,7 @@ const App = () => {
 
     return (
         <div className="app">
+            <Hero/>
             {upcoming.length > 0 && <MoviesSlider movies={upcoming} title="Upcoming"/>}
             {popular.length > 0 && <MoviesSlider movies={popular} title="Popular"/>}
             {topRated.length > 0 && <MoviesSlider movies={topRated} title="Top Rated"/>}

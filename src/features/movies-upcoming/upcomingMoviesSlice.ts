@@ -15,11 +15,11 @@ const upcomingMoviesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers(builder) {
-        builder.addCase(getUpcomingMovies.pending, (state, action) => {
+        builder.addCase(getUpcomingMovies.pending, (state) => {
             state.status = 'pending';
-        }).addCase(getUpcomingMovies.fulfilled, (state, action) => {
+        }).addCase(getUpcomingMovies.fulfilled, (state, { payload }) => {
             state.status = 'done';
-            state.movies = action.payload.results;
+            state.movies = payload.results;
         })
     }
 })

@@ -22,7 +22,7 @@ const Hero = () => {
                         <SwiperSlide key={movie.id}>
                             <Link to={`/movies/${movie.id}`}>
                                 <div className='hero__slider-image-container'>
-                                    <img width={'100%'} height={720} className='hero__slider-image'
+                                    <img className='hero__slider-image'
                                          src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}
                                          alt={movie.title}/>
                                     <div className="info">
